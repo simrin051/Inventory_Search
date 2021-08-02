@@ -1,0 +1,58 @@
+<body>
+<div class="container">
+
+  
+
+  <h1 class="heading">Inventory System</h1>
+
+  
+  <form [formGroup]="invoiceForm" >
+
+    <table class="table table-bordered" formArrayName="itemRows">
+      
+
+      <tr *ngFor="let product of formArr.controls; let i=index" [formGroupName]="i">
+
+        <td>
+
+            Name :
+
+            <input type="text" formControlName="Name" class="form-control">
+
+        </td>
+
+        <td>
+
+            Quantity :
+
+            <input type="text" formControlName="Qty" class="form-control">
+
+        </td>
+
+        <td>
+          <button class="add button"  (click)="addNewRow()" class="btn btn-primary">Add new Product</button><br>
+  
+            <button class="remove button" (click)="deleteRow(i)" class="btn btn-danger">Remove</button>
+
+        </td>
+
+      </tr>
+
+    </table>
+
+<div class="searchPageLink">
+  <button  class="search" class="btn btn-success submit" (click)="searchStore()">Search</button>
+</div>   
+
+
+    <button  type="submit" class="btn btn-success submit">Submit</button>
+
+  </form>
+<!--
+  <pre>{{invoiceForm.value | json}}</pre>    
+-->
+  <br/>
+
+  
+</div>
+</body>   
